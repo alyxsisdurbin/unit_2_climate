@@ -125,3 +125,18 @@ if (a > b) {
   print("Tie.")
 }
 ## ^^^ chain stops as soon as it recieves a true
+
+# Calculate reciprocals
+a = 0
+ifelse(a > 0, 1/a, NA)
+## [1] NA
+
+a = c(0, 1, 2, -4, 5)
+reciprocals = ifelse(a != 0, 1/a, NA)
+cbind(a, reciprocals)
+##       a reciprocals
+## [1,]  0          NA
+## [2,]  1        1.00
+## [3,]  2        0.50
+## [4,] -4       -0.25
+## [5,]  5        0.20
