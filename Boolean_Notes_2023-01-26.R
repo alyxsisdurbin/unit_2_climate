@@ -45,11 +45,83 @@ my_error = 0.0001
 
 # Boolean operators
 
+x = 5
+x
+x > 3 & x < 15 # AND
+x < 3 | x > 15 # OR
+x < 10 & x %in% c(1,2,3)
+x < 10 & x | c(1,2,3)
+
+# subset
+
+world_oceans[world_oceans$avg_depth_m>4000 & world_oceans$area_km2 <50e6, ]
+### ^^^above allows us to search for specific data within our dataset that satisifies the conditons we want
+
+z = c(T,F,F)
+z
+any(z) 
+all(z)
+
+# handling missing data "NA"
+NA == NA
+is.na(NA)
+vec = c(0,1,2,NA,4)
+is.na(vec)
+any(is.na(vec))
+
+#####################################################
+
+# starting if/else statements
+
+######################################################
+
+num = -2
+
+if(num < 0){
+  print("oh no, num is negative!")
+  num = num*-1
+  print("don't worry, i made it positive")
+}
+
+num
 
 
+#excersize 3.1
+
+friend_temp = 103
+
+if(friend_temp > 98.6){ 
+  diff_from_norm = (friend_temp - 98.6)
+  print(diff_from_norm)
+  print("YOU HAVE A FEVER")
+  if(friend_temp > 101){
+    print("WARNING: YOU HAVE A HIGH FEVER")
+  }
+}
+
+##################################################
+# if/else statement
+##################################################
+
+grade = 83
+
+if(grade > 60){
+  print("You passed!")
+}else{
+  print("You failed...")
+}
+## [1] "You passed!"
 
 
+## did player 1 win or did player b win or did they tie? 
 
-
-
-
+a = 50
+b = 45
+if (a > b) {
+  print("A wins!")
+} else if (a < b) {
+  print("B wins!")
+} else {
+  print("Tie.")
+}
+## ^^^ chain stops as soon as it recieves a true
