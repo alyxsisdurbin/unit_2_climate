@@ -100,4 +100,14 @@ for (i in seq(num)){
   
 }
 
+## nested loop
+mat = matrix(c(2,0,8,3,5,-4), nrow=2)
+mat_squared = matrix(rep(NA,6), nrow=2, ncol=3) # This matrix will hold our results
 
+for(i in c(1:2)){
+  for(j in c(1:3)){
+    print(paste("i", i, "and j: ", j))
+    mat_squared[i,j] = mat[i,j]^2
+    print(mat_squared)
+  }
+}
