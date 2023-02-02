@@ -76,6 +76,9 @@ for (i in seq(from=3, dim(arctic_ice_averages)[1]-2)) # skip the first 2 and las
 }
 head(arctic_ice_averages)
 
+arctic_ice_averages$date = make_date(year=arctic_ice_averages$Year, month=7, day=1)
+
 # pdf('figures/arctic_ice_extent.pdf', width=7, height=5)
-plot(extent_annual_avg ~ Year, data=arctic_ice_averages, col="red", type="l") +
+plot(Extent~date, data=arctic_ice, type="l", ylab="Arctic sea ice extent (x10^6 km^2)")
+  lines(extent_annual_avg ~ Year, data=arctic_ice_averages, col="red", type="l") +
   lines(extent_5yr_avg ~ Year, data=arctic_ice_averages, col="blue", type="l")
