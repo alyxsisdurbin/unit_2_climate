@@ -59,5 +59,20 @@ temp_anomaly = read.delim(url, skip=5, sep="", header=FALSE, col.names = c("Year
 
 head(temp_anomaly)
 
+temp1998 = temp_anomaly$No_Smoothing[temp_anomaly$Year==1998]
+temp2012 = temp_anomaly$No_Smoothing[temp_anomaly$Year==2012]
+
 plot(No_Smoothing ~ Year, data=temp_anomaly, type="b") +
-  lines(Lowess_5 ~ Year, data = temp_anomaly, col = "red", lwd=2)
+  lines(Lowess_5 ~ Year, data=temp_anomaly, col="red", lwd=2) +
+  abline(v =1998, lty = "dashed") +
+  abline(v =2012, lty = "dashed") +
+    lines(c(temp1998, temp2012))
+
+
+calc_rolling_avg = function(data, moving_window=5){
+  result = rep(NA, length(data))
+  for(i in seq(from=moving_window, to=length(data))){
+    result[i] = mean(data[seq(from=(i-moving_window+1), to=i)])
+  }
+}
+  
